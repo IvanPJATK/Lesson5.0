@@ -1,0 +1,616 @@
+{
+  "info": {
+    "_postman_id": "054c3881-b3b6-4434-95eb-3eb636ef8122",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54128963",
+    "_collection_link": "https://go.postman.co/collection/54128963-054c3881-b3b6-4434-95eb-3eb636ef8122?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7170/api/rooms",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7170",
+          "path": [
+            "api",
+            "rooms"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get data",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7170/api/rooms",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "rooms"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 15:53:39 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Lecture Hall 101\",\n        \"buildingCode\": \"A\",\n        \"floor\": 1,\n        \"capacity\": 120,\n        \"hasProjector\": true,\n        \"isActive\": true\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Lab 202\",\n        \"buildingCode\": \"A\",\n        \"floor\": 2,\n        \"capacity\": 30,\n        \"hasProjector\": true,\n        \"isActive\": true\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Seminar Room 305\",\n        \"buildingCode\": \"B\",\n        \"floor\": 3,\n        \"capacity\": 20,\n        \"hasProjector\": false,\n        \"isActive\": true\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Conference Room 1\",\n        \"buildingCode\": \"B\",\n        \"floor\": 1,\n        \"capacity\": 15,\n        \"hasProjector\": true,\n        \"isActive\": false\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Workshop Room 110\",\n        \"buildingCode\": \"C\",\n        \"floor\": 1,\n        \"capacity\": 40,\n        \"hasProjector\": true,\n        \"isActive\": true\n    }\n]"
+        },
+        {
+          "name": "Get data",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7170/api/rooms?minCapacity=100",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "rooms"
+              ],
+              "query": [
+                {
+                  "key": "minCapacity",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:11:08 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Lecture Hall 101\",\n        \"buildingCode\": \"A\",\n        \"floor\": 1,\n        \"capacity\": 120,\n        \"hasProjector\": true,\n        \"isActive\": true\n    }\n]"
+        },
+        {
+          "name": "Get data",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7170/api/rooms/building/A",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "rooms",
+                "building",
+                "A"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:12:10 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Lecture Hall 101\",\n        \"buildingCode\": \"A\",\n        \"floor\": 1,\n        \"capacity\": 120,\n        \"hasProjector\": true,\n        \"isActive\": true\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Lab 202\",\n        \"buildingCode\": \"A\",\n        \"floor\": 2,\n        \"capacity\": 30,\n        \"hasProjector\": true,\n        \"isActive\": true\n    }\n]"
+        },
+        {
+          "name": "Get data",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7170/api/rooms/999",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "rooms",
+                "999"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 404
+            },
+            {
+              "key": "content-type",
+              "value": "text/plain; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:25:00 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "Room with id 999 was not found"
+        }
+      ]
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"roomId\": 1,\n  \"organizerName\": \"John Doe\",\n  \"topic\": \"Project Review\",\n  \"date\": \"2026-05-20\",\n  \"startTime\": \"10:00:00\",\n  \"endTime\": \"11:00:00\",\n  \"status\": \"confirmed\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/reservations",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7170",
+          "path": [
+            "api",
+            "reservations"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": [
+        {
+          "name": "Post data",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": 1,\n  \"organizerName\": \"John Doe\",\n  \"topic\": \"Project Review\",\n  \"date\": \"2026-05-20\",\n  \"startTime\": \"10:00:00\",\n  \"endTime\": \"11:00:00\",\n  \"status\": \"confirmed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7170/api/reservations",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "reservations"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 201
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:08:51 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            },
+            {
+              "key": "location",
+              "value": "https://localhost:7170/api/Reservations/6"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"roomId\": 1,\n    \"organizerName\": \"John Doe\",\n    \"topic\": \"Project Review\",\n    \"date\": \"2026-05-20\",\n    \"startTime\": \"10:00:00\",\n    \"endTime\": \"11:00:00\",\n    \"status\": \"confirmed\"\n}"
+        },
+        {
+          "name": "Post data",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": 1,\n  \"organizerName\": \"John Doe\",\n  \"topic\": \"Project Review\",\n  \"date\": \"2026-05-20\",\n  \"startTime\": \"10:00:00\",\n  \"endTime\": \"11:00:00\",\n  \"status\": \"confirmed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7170/api/reservations",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "reservations"
+              ]
+            }
+          },
+          "status": "Conflict",
+          "code": 409,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 409
+            },
+            {
+              "key": "content-type",
+              "value": "text/plain; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:23:48 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "This room is already booked for the selected time."
+        },
+        {
+          "name": "Post data",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": 1,\n  \"organizerName\": \"John Doe\",\n  \"topic\": \"Project Review\",\n  \"date\": \"2023-05-20\",\n  \"startTime\": \"11:00:00\",\n  \"endTime\": \"10:00:00\",\n  \"status\": \"confirmed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7170/api/reservations",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "reservations"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 400
+            },
+            {
+              "key": "content-type",
+              "value": "application/problem+json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:24:31 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"EndTime\": [\n            \"End time must be later than Start time.\"\n        ]\n    },\n    \"traceId\": \"00-790f34374a183d16689e91fa9b1dc933-913fc2255fe29c69-00\"\n}"
+        },
+        {
+          "name": "Post data",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Lab 204\",\n  \"buildingCode\": \"B\",\n  \"floor\": 2,\n  \"capacity\": 24,\n  \"hasProjector\": true,\n  \"isActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7170/api/rooms",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "rooms"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 201
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:26:05 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            },
+            {
+              "key": "location",
+              "value": "https://localhost:7170/api/Rooms/6"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"name\": \"Lab 204\",\n    \"buildingCode\": \"B\",\n    \"floor\": 2,\n    \"capacity\": 24,\n    \"hasProjector\": true,\n    \"isActive\": true\n}"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7170/api/reservations/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "reservations",
+                "1"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 204
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:25:25 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"organizerName\": \"Anna Kowalska\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/reservations/6",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7170",
+          "path": [
+            "api",
+            "reservations",
+            "6"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 7,\r\n  \"roomId\": 2,\r\n  \"organizerName\": \"Anna Kowalska\",\r\n  \"topic\": \"HTTP and REST Workshop\",\r\n  \"date\": \"2026-05-11\",\r\n  \"startTime\": \"10:00:00\",\r\n  \"endTime\": \"12:30:00\",\r\n  \"status\": \"confirmed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7170/api/reservations/7",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7170",
+              "path": [
+                "api",
+                "reservations",
+                "7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": ":status",
+              "value": 200
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 18 Apr 2026 16:32:56 GMT"
+            },
+            {
+              "key": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 7,\n    \"roomId\": 2,\n    \"organizerName\": \"Anna Kowalska\",\n    \"topic\": \"HTTP and REST Workshop\",\n    \"date\": \"2026-05-11\",\n    \"startTime\": \"10:00:00\",\n    \"endTime\": \"12:30:00\",\n    \"status\": \"confirmed\"\n}"
+        }
+      ]
+    }
+  ]
+}
