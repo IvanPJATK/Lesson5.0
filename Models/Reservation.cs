@@ -2,7 +2,7 @@
 
 namespace Lesson5.Models
 {
-    public class Reservation
+    public class Reservation : IValidatableObject
     {
         public int Id { get; set; }
         public int RoomId { get; set; }
