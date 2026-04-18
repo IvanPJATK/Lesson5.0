@@ -40,6 +40,14 @@ namespace Lesson5.Controllers
         [HttpPost]
         public ActionResult<Reservation> CreateReservation(Reservation reservation)
         {
+            var isOverlapping = Database.DataStore.Reservations
+                .Any(r => r.RoomId == reservation.RoomId && r.Date == reservation.Date
+                && ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) || (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime)));
+            if (isOverlapping)
+            {
+                return Conflict("This room is already booked for the selected time.");
+            }
+
             reservation.Id = Database.DataStore.NextReservationId;
             Database.DataStore.Reservations.Add(reservation);
 
